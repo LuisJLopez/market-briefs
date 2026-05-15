@@ -1,6 +1,7 @@
 import os
 import pytz
 import logging
+from logging.handlers import RotatingFileHandler
 
 
 # ---------- CREDENTIALS (loaded from environment) ----------
@@ -34,8 +35,8 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s | %(levelname)s | %(message)s',
     handlers=[
-        logging.FileHandler(_log_path),
-        logging.StreamHandler()
+        RotatingFileHandler(_log_path, maxBytes=5 * 1024 * 1024, backupCount=3),
+        logging.StreamHandler(),
     ]
 )
 logger = logging.getLogger()

@@ -1,0 +1,14 @@
+.git
+.env
+.env.*
+!.env.example
+logs/
+*.log
+__pycache__/
+*.pyc
+*.pyo
+.venv/
+venv/
+.DS_Store
+.idea/
+.vscode/
